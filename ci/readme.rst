@@ -72,9 +72,9 @@ contributors to the CodeIgniter project and you, the CodeIgniter user.
 ******************
 Padrões do Projeto
 ******************
-BD:
-- Nomes das tabelas sempre no plural. Caso necessite separar por "_" .
-- Chaves estrangeiras sempre no singular. Caso necessite separar por "_" .
+BD:_
+- Nomes das tabelas sempre no plural. Caso necessite separar por "_" ._
+- Chaves estrangeiras sempre no singular. Caso necessite separar por "_" ._
 - Tudo em minúsculas.
 
 Controller:

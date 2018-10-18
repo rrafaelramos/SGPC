@@ -88,12 +88,19 @@ Controller:
 
 - Nomes das variáveis sempre no singular e minúsculas.Caso necessite separar por "_" .
 
+NOME CONTROLLERS:
+	Funcionario.php
+	Login.php
+	Recuperar_Credencial.php
+	Cliente.php
+	Servicos.php
+
 Models: 
 
 - Nome do model sempre começando com maiúsculo, no plural e a ultima palavra deverá ser "Model"! Caso necessite separar por "_" . Ex:Funcionarios_Model ou Clientes_Funcionarios_Model.
 - Nomes das functions sempre no singular e minúsculas.Caso necessite separar por "_" .
 - Nomes das variáveis sempre no singular e minúsculas.Caso necessite separar por "_" .
-MODELs:
+NOME MODELs:
 	Funcionarios_Model.php:
 		Funções:
 			create

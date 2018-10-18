@@ -24,7 +24,7 @@ class Funcionario extends CI_Controller {
     // Carrega o model
     $this->load->model(Funcionarios_Model, 'funcionario');
     // Tenta persistir os dados
-    if($funcionario->create($func)){
+    if($this->funcionario->create($func)){
       echo "Cadastrado com sucesso!";
     }else{
       echo "Erro ao cadastrar!";
@@ -50,7 +50,7 @@ class Funcionario extends CI_Controller {
     // Carrega o model
     $this->load->model(Funcionarios_Model, 'funcionario');
     // Tenta persistir os dados
-    if($funcionario->update($func)){
+    if($this->funcionario->update($func)){
       echo "Atualizado com sucesso!";
     }else{
       echo "Erro ao atualizar!";
@@ -64,7 +64,7 @@ class Funcionario extends CI_Controller {
     // Carrega o model
     $this->load->model(Funcionarios_Model, 'funcionario');
     // Recebe os dados do model
-    $func['funcionarios'] = $funcionario->list();
+    $func['funcionarios'] = $this->funcionario->list();
 
     foreach ($func as $line) {
       echo $line->nome."<br/>";
@@ -80,7 +80,7 @@ class Funcionario extends CI_Controller {
     // Carrega o model
     $this->load->model(Funcionarios_Model, 'funcionario');
     // Recebe os dados do model
-    $func['funcionarios'] = $funcionario->list_filter($dados);
+    $func['funcionarios'] = $this->funcionario->list_filter($dados);
 
     foreach ($func as $line) {
       echo $line->nome."<br/>";
@@ -96,7 +96,7 @@ class Funcionario extends CI_Controller {
     // Carrega o model
     $this->load->model(Funcionarios_Model, 'funcionario');
     // Recebe os dados do model
-    if($funcionario->delete($func)){
+    if($this->funcionario->delete($func)){
       echo "Deletado com sucesso!";
     }else{
       echo "Erro ao deletar!";

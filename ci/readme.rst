@@ -68,3 +68,33 @@ Acknowledgement
 
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
+
+******************
+Padrões do Projeto
+******************
+BD:
+
+- Nomes das tabelas sempre no plural. Caso necessite separar por "_" .
+
+- Chaves estrangeiras sempre no singular. Caso necessite separar por "_" .
+
+- Tudo em minúsculas.
+
+Controller:
+
+- Nome do controller sempre começando com maiúsculo e no singular! Caso necessite separar por "_" .
+
+- Nomes das functions sempre no singular e minúsculas.Caso necessite separar por "_" .
+
+- Nomes das variáveis sempre no singular e minúsculas.Caso necessite separar por "_" .
+
+Models: 
+
+- Nome do model sempre começando com maiúsculo, no plural e a ultima palavra deverá ser "Model"! Caso necessite separar por "_" . Ex:Funcionarios_Model ou Clientes_Funcionarios_Model.
+- Nomes das functions sempre no singular e minúsculas.Caso necessite separar por "_" .
+- Nomes das variáveis sempre no singular e minúsculas.Caso necessite separar por "_" .
+
+View-Controller:
+
+- Sempre enviar dados via POST!
+

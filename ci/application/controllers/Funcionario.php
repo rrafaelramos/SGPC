@@ -20,7 +20,7 @@ class Funcionario extends CI_Controller {
     $func['cidade'] = $this->input->post('cidade');
     $func['referencia'] = $this->input->post('referencia');
     $func['complemento'] = $this->input->post('complemento');
-    $func['departamento'] = $this->input->post('departamento');
+    $func['departamento'] = $this->$funcionario->input->post('departamento');
     // Carrega o model
     $this->load->model(Funcionarios_Model, 'funcionario');
     // Tenta persistir os dados

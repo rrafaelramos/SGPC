@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Recuperar Senha</title>
-    <link rel="stylesheet" href=<?php echo url_for("assets/css/bootstrap.css");?>>
+    <link rel="stylesheet" href="/SGPC/ci/assets/css/bootstrap.css">
   </head>
   <body>
     <center>

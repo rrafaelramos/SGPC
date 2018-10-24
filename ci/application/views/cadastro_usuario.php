@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Cadastro Usuário</title>
-    <link rel="stylesheet" href=<?php echo url_for("assets/css/bootstrap.css");?>>
+    <link rel="stylesheet" href=<?php echo base_url("assets/css/bootstrap.css");?>>
   </head>
   <body>
 

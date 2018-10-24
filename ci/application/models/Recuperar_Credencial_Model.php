@@ -9,9 +9,8 @@ class Recuperar_Credencial_Model extends CI_Model {
     }
 
     function setSenha($dados) {
-      //$this->db->update('usuarios', ,array('id' => $dados['id']));
       $query = $this->db->query('UPDATE funcionarios SET senha = "'.$dados['senha'].'" WHERE id="'.$dados['id'].'"');
-      return $query->result(); 
+      return $query->result();
     }
 
 }

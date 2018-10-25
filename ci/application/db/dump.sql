@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: sgpc
+-- Host: localhost    Database: sgpc
 -- ------------------------------------------------------
 -- Server version	5.7.23-0ubuntu0.16.04.1
 
@@ -16,37 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Dumping data for table `funcionarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `login` varchar(50) NOT NULL,
-  `rua` varchar(100) DEFAULT NULL,
-  `numero` int(11) DEFAULT NULL,
-  `bairro` varchar(150) DEFAULT NULL,
-  `cidade` varchar(150) DEFAULT NULL,
-  `referencia` varchar(255) DEFAULT NULL,
-  `complemento` varchar(100) DEFAULT NULL,
-  `departamento` enum('FISCAL','CONTABIL','PESSOAL(RH)') DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuarios`
---
-
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Gerente','gerente@gmail.com','Gerente','1',1,'Centro','Januária','','Casa','FISCAL');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `funcionarios` WRITE;
+/*!40000 ALTER TABLE `funcionarios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `funcionarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +33,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-17  9:37:49
+-- Dump completed on 2018-10-18  9:18:04

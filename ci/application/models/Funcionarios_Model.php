@@ -1,6 +1,6 @@
 <?php
 
-class Usuarios_Model extends CI_Model {
+class Funcionarios_Model extends CI_Model {
 
     protected $id;
     protected $nome;
@@ -15,24 +15,24 @@ class Usuarios_Model extends CI_Model {
     protected $departamento;
 
     public function create($usuario) {
-        $query = $this->db->insert('usuarios', $usuario);        
+        return $query = $this->db->insert('funcionarios', $usuario);        
     }
 
     public function update($usuario) {
-        $this->db->update('usuarios', $usuario, array('id' => $usuario['id']));
+        return $this->db->update('funcionarios', $usuario, array('id' => $usuario['id']));
     }
 
     public function delete($id) {
-        $this->db->update('usuarios', array('id' => $id));
+        return $this->db->update('funcionarios', array('id' => $id));
     }
     
     public function get_all(){        
-        $this->db->get('usuarios');
+        return $this->db->get('funcionarios');
     }
     
     public function get_filter($filter) {
         $this->db->where($filter);
-        $this->db->get('usuarios');        
+        return $this->db->get('funcionarios');        
     }
 
     function getId() {

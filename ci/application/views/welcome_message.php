@@ -68,13 +68,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
+<<<<<<< HEAD
     <h1>Testando</h1>
 	<h1>Welcome to CodeIgniter!</h1>
+=======
+	<h1>Bem-vindo ao SGPC!</h1>
+>>>>>>> ananda
 
 	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+		<p>CodeIgniter</p>
 
-		<p>If you would like to edit this page you'll find it located at:</p>
+		<p>If you would like git checkout -b [name_of_your_new_branch]to edit this page you'll find it located at:</p>
 		<code>application/views/welcome_message.php</code>
 
 		<p>The corresponding controller for this page is found at:</p>

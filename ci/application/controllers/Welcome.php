@@ -20,6 +20,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+<<<<<<< HEAD
 		$this->load->view('login');
+=======
+		$this->load->view('cadastro_usuario');
+>>>>>>> ananda
 	}
 }

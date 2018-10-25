@@ -8,114 +8,72 @@ class Recuperar_Credencial extends CI_Controller {
         $this->load->view('recuperar_credencial');
     }
 
-    public function validacao() {
-        $func['email'] = $this->input->post('email');
+    public function valida() {
+        $this->load->library('email');
+        $this->load->model("Recuperar_Credencial_Model"); // chama o modelo usuarios_model
+        $email = $this->input->post("email"); // pega via post o email que venho do formulario
+        $dados['email'] = $email;
+        $usuario = $this->Recuperar_Credencial_Model->validacao($dados); // acessa a função buscaPorEmailSenha do modelo
 
-        $this->load->model(Funcionarios_Model, 'funcionario');
-
-
-        if ($funcionario->validacao($func)) {
-            $func['token'] = md5($func['email']);
-
-            // Carrega a library email
-            $this->load->library('email');
-
-            //Inicia o processo de configuração para o envio do email
-            $config['protocol'] = 'mail'; // define o protocolo utilizado
-            $config['wordwrap'] = TRUE; // define se haverá quebra de palavra no texto
-            $config['validate'] = TRUE; // define se haverá validação dos endereços de email
+        if ($usuario) {
+            $this->Recuperar_Credencial_Model->setToken($email);
+            
+    
+            $mensagem = "E-mail:" . $email;
+            $mensagem .= "<br>Menagem: SOLICITAÇÂO DE NOVA SENHA <br>";
+            $mensagem .= "<a href='http://127.0.0.1/scpc/index.php/Recuperar_Credencial/recuperar/" . md5($email) . "/" . $usuario['id'] . "'>CLIQUE AQUI PARA RECUPERAR SUA SENHA</a>";
+            $config['smtp_host'] = 'ssl://smtp.gmail.com';
+            $config['smtp_port'] = '465';
+            $config['smtp_user'] = 'mads20182@gmail.com';
+            $config['smtp_pass'] = '2018mads';
+            $config['protocol'] = 'smtp';
+            $config['wordwrap'] = TRUE;
+            $config['validate'] = TRUE;
             $config['mailtype'] = 'html';
-
-            // Inicializa a library Email, passando os parâmetros de configuração
+            $config['charset'] = 'utf-8';
+            $config['newline'] = "\r\n";
+   
             $this->email->initialize($config);
+            $this->email->from('mads2018@gmail.com', 'SGPC'); // Remetente
+            $this->email->to('guilhermeviana609@gmail.com'); //destinatario
+            $this->email->subject('Recuperação de senha');
+            $this->email->message($mensagem);
 
-            // Define remetente e destinatário
-            $this->email->from('sgpc@email.com', 'Remetente'); // Remetente
-            $this->email->to($func['email'], 'Usuario'); // Destinatário
-            // Define o assunto do email
-            $this->email->subject('Recuperação de credencial');
-
-            $this->email->message($this->load->view('email-template', $func, TRUE));
-           
             if ($this->email->send()) {
-                $mensagem = "Email enviado com sucesso!";
-                $this->load->view('sucesso',  $mensagem);
+                echo "EMAIL ENVIADO COM SUCESSO";                
             } else {
-                $mensagem = "Falha ao enviar e-mail";
-                $this->load->view('falha', $mensagem);
+                echo "AAA";
+                print_r($this->email->print_debugger());               
             }
+        }else{
+            echo "OPS";
+        }       
+        echo "VIEW DEFAULT";
+    }
+
+    public function recuperar($token, $id) {
+        $this->load->model("funcionarios_model");
+        $valida = $this->funcionarios_model->validaToken($id, $token);
+        $dados = ['id' => $id];
+        if ($valida) {
+            echo "VALIDACAO OK";
         } else {
-            $mensagem = "Usuário não encontrado";
-            $this->load->view('recuperar_credencial', $mensagem);
+            echo "VALIDACAO FALHA";
         }
     }
-
-    public function update() {
-        // Carrega os dados recebidos por POST
-        $func['id'] = $this->input->post('id');
-        $func['nome'] = $this->input->post('nome');
-        $func['email'] = $this->input->post('email');
-        $func['login'] = $this->input->post('login');
-        $func['rua'] = $this->input->post('rua');
-        $func['numero'] = $this->input->post('numero');
-        $func['bairro'] = $this->input->post('bairro');
-        $func['cidade'] = $this->input->post('cidade');
-        $func['referencia'] = $this->input->post('referencia');
-        $func['complemento'] = $this->input->post('complemento');
-        $func['departamento'] = $this->input->post('departamento');
-        // Carrega o model
-        $this->load->model(Funcionarios_Model, 'funcionario');
-        // Tenta persistir os dados
-        if ($funcionario->update($func)) {
-            echo "Atualizado com sucesso!";
+    
+     public function update() {
+        $this->load->model("usuarios_model");
+        $senha = $this->input->post("senha");
+        $senha2 = $this->input->post("senha2");
+        $id = $this->input->post("id");
+        if ($senha === $senha2) {
+            $this->usuarios_model->setSenha($senha, $id);
+            echo "SUCESSO";
         } else {
-            echo "Erro ao atualizar!";
+            echo "SENHAS NAO SAO IGUAIS";
         }
-
-        //$this->load->view('welcome_message');
     }
 
-    public function get_all() {
-        // Carrega o model
-        $this->load->model(Funcionarios_Model, 'funcionario');
-        // Recebe os dados do model
-        $func['funcionarios'] = $funcionario->list();
-
-        foreach ($func as $line) {
-            echo $line->nome . "<br/>";
-        }
-
-        //$this->load->view('welcome_message', $func);
-    }
-
-    public function get_filter() {
-        // Carrega os dados recebidos por POST
-        $dados['filtro'] = $this->input->post('filtro');
-        // Carrega o model
-        $this->load->model(Funcionarios_Model, 'funcionario');
-        // Recebe os dados do model
-        $func['funcionarios'] = $funcionario->list_filter($dados);
-
-        foreach ($func as $line) {
-            echo $line->nome . "<br/>";
-        }
-
-        //$this->load->view('welcome_message', $func);
-    }
-
-    public function delete() {
-        // Carrega os dados recebidos por POST
-        $func['id'] = $this->input->post('id');
-        // Carrega o model
-        $this->load->model(Funcionarios_Model, 'funcionario');
-        // Recebe os dados do model
-        if ($funcionario->delete($func)) {
-            echo "Deletado com sucesso!";
-        } else {
-            echo "Erro ao deletar!";
-        }
-
-        //$this->load->view('welcome_message');
-    }
 
 }

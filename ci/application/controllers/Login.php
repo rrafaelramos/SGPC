@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -17,10 +16,17 @@ class Login extends CI_Controller {
     // Carrega o model
     $this->load->model(Funcionarios_Model, 'funcionario');
     // Recebe os dados do model
-    if($funcionario->login($func)){
-      $this->session->set_userdata(array("login"=>$func['login'], "logado"=>true));
+    $dados = $this->funcionario->login($func);
+    $funcao = null;
+    foreach ($dados as $line) {
+      $funcao = $line->departamento;
+      break;
+    }
+    if($funcao!=null){
+      $this->session->set_userdata(array("login"=>$func['login'], "logado"=>true, "departamento"=> $funcao));
+      echo "Logado com sucesso!";
     }else{
-      echo "Erro ao logar!";
+      echo "Falha ao logar";
     }
 
     //$this->load->view('welcome_message');
@@ -39,8 +45,9 @@ class Login extends CI_Controller {
 
   public function logout()
   {
-      $this->session->set_userdata('login', '');
-      $this->session->set_userdata('logado', false);
+      $this->session->unset_userdata('login');
+      $this->session->unset_userdata('logado');
+      $this->session->unset_userdata('departamento');
       // destroy session
       $this->session->sess_destroy();
   }

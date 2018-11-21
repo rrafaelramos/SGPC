@@ -52,7 +52,8 @@
         		<option value="pr">Paraná</option>
         		<option value="pe">Pernambuco</option>
         		<option value="pi">Piauí</option>
-        		<option value="rj">Rio de Janeiro</option>
+        		<option value="rj">Rio de Janeiro</option
+            
         		<option value="rn">Rio Grande do Norte</option>
         		<option value="ro">Rondônia</option>
         		<option value="rs">Rio Grande do Sul</option>

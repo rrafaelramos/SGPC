@@ -25,4 +25,8 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('cadastro_usuario');
 	}
+	public function recuperar_senha()
+	{
+		$this->load->view('recuperar_senha');
+	}
 }

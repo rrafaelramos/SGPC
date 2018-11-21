@@ -8,7 +8,7 @@
   <body>
     <center>
       <div class="card" style="width: 18rem;">
-        <form class="form-inline" name="form" method="post" action="">
+        <form class="form-inline" name="form" method="post" action="valida">
           <div class="form-group ">
             <label for="exampleInputPassword1">Nova senha</label>
             <br>

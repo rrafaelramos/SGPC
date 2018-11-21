@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Recuperar_Credencial extends CI_Controller {
 
     public function index() {
-        $this->load->view('recuperar_credencial');
+        $this->load->view('recuperar_senha_index', $message = null);
     }
 
     public function valida() {
@@ -46,9 +46,11 @@ class Recuperar_Credencial extends CI_Controller {
                 print_r($this->email->print_debugger());               
             }
         }else{
-            echo "OPS";
+            
+            $message = "Usuário não encontrado!";
+            $this->load->view('recuperar_senha_index', $message);
         }       
-        echo "VIEW DEFAULT";
+        //echo "VIEW DEFAULT";
     }
 
     public function recuperar($token, $id) {

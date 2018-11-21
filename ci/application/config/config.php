@@ -24,8 +24,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
+<<<<<<< HEAD
 $config['base_url'] = 'http://127.0.0.1/SGPC/ci/index.php';
 
+=======
+
+$config['base_url'] = 'http://localhost/SGPC/ci/';
+>>>>>>> victor
 
 /*
 |--------------------------------------------------------------------------

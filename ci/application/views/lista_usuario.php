@@ -19,10 +19,10 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nome</th>
-                                    <th>Usuário</th>
                                     <th>Email</th>
+                                    <th>Login</th>
                                     <th>Senha</th>
-                                     <th>Endereço</th>
+                                    <th>Endereço</th>
                                     <th>Numero</th>
                                     <th>Bairro</th>
                                     <th>Cidade</th>
@@ -33,21 +33,25 @@
                                 </tr>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <td>#</td>
-                                  <td>Nome</td>
-                                  <td>Usuário</td>
-                                  <td>Email</td>
-                                  <td>Senha</td>
-                                  <td>Endereço</td>
-                                  <td>Numero</td>
-                                  <td>Bairro</td>
-                                  <td>Cidade</td>
-                                  <td>UF</td>
-                                  <td>Complemento</td>
-                                  <td>Departamento</td>
-                                  <td><a href=""><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=""><span class="glyphicon glyphicon-remove"></span></a></td>
-                              </tr>
+                          <?php
+                          foreach ($func as $line) {
+                            echo  '<tr>';
+                              echo '<td></td>';
+                               echo '   <td>'.$line->nome.'</td>';
+                               echo '   <td>'.$line->email.'</td>';
+                               echo '   <td>'.$line->login.'</td>';
+                               echo '   <td>'.$line->Senha.'</td>';
+                               echo '   <td>'.$line->rua.'</td>';
+                               echo '   <td>'.$line->numero.'</td>';
+                               echo '   <td>'.$line->bairro.'</td>';
+                               echo '   <td>'.$line->cidade.'</td>';
+                               echo '   <td>'.$line->referencia.'</td>';
+                               echo '   <td>'.$line->complemento.'</td>';
+                               echo '   <td>'.$line->departamento.'</td>';
+                               echo '   <td><a href="'.base_url('Funcionario/show_data/'.$line->id).'"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=""><span class="glyphicon glyphicon-remove"></span></a></td>';
+                          echo '    </tr>';
+                          }
+                          ?>
                           </tbody>
                       </table >
                     </div >

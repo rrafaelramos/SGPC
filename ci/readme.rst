@@ -136,3 +136,6 @@ View-Controller:
 
 - Sempre enviar dados via POST!
 
+Nome views
+- cadastro_usuario.php
+

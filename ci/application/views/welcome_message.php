@@ -74,10 +74,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 =======
 	<h1>Bem-vindo ao SGPC!</h1>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> ananda
 =======
 >>>>>>> 6753de6c04366e69334fbe19ee681d284bfd7fc8
 >>>>>>> master
+=======
+>>>>>>> 6753de6c04366e69334fbe19ee681d284bfd7fc8
+>>>>>>> 1ab66e2a1eb70f9dc0a1bb38069f8c43f7f6dc16
 
 	<div id="body">
 		<p>CodeIgniter</p>

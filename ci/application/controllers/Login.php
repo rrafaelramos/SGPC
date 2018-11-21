@@ -8,7 +8,29 @@ class Login extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
-  public function login()
+
+  public function verify_login()
+  {
+    if($this->session->userdata('logado')){
+      echo "Válido! Usuário logado!";
+    }else{
+      echo "Erro ao logar!";
+    }
+
+    //$this->load->view('welcome_message');
+  }
+
+  public function logout()
+  {
+      $this->session->unset_userdata('login');
+      $this->session->unset_userdata('logado');
+      $this->session->unset_userdata('departamento');
+      // destroy session
+      $this->session->sess_destroy();
+  }
+
+
+	public function logar()
   {
     // Carrega os dados recebidos por POST
     $func['login'] = $this->input->post('login');
@@ -32,24 +54,6 @@ class Login extends CI_Controller {
     //$this->load->view('welcome_message');
   }
 
-  public function verify_login()
-  {
-    if($this->session->userdata('logado')){
-      echo "Válido! Usuário logado!";
-    }else{
-      echo "Erro ao logar!";
-    }
 
-    //$this->load->view('welcome_message');
-  }
-
-  public function logout()
-  {
-      $this->session->unset_userdata('login');
-      $this->session->unset_userdata('logado');
-      $this->session->unset_userdata('departamento');
-      // destroy session
-      $this->session->sess_destroy();
-  }
 
 }

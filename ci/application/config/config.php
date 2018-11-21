@@ -23,15 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-<<<<<<< HEAD
-$config['base_url'] = 'http://localhost/SGPC/ci/';
-=======
-<<<<<<< HEAD
-$config['base_url'] = 'http://localhost/SGPC/ci/';
-=======
+
 $config['base_url'] = 'http://127.0.0.1/SGPC/ci/index.php';
->>>>>>> ananda
->>>>>>> 1ab66e2a1eb70f9dc0a1bb38069f8c43f7f6dc16
 
 /*
 |--------------------------------------------------------------------------

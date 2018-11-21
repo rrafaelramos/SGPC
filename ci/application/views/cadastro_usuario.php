@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Cadastro Usuário</title>
-    <link rel="stylesheet" href=<?php echo url_for("assets/css/bootstrap.css");?>>
+    <link rel="stylesheet" href="/SGPC/ci/assets/css/bootstrap.css">
   </head>
   <body>
 
@@ -12,7 +12,7 @@
       <form name="form" method="post" action="">
         <div><font face="Verdana, Arial, Helvetica, sans-serif" size="1">
           Nome:
-          <input type="text" name="nome"><br><br>
+          <input type="text" name="nome" class="form-input"><br><br>
 
           E-mail:
           <input type="text" name="email"><br><br>

@@ -68,7 +68,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
+<<<<<<< HEAD
+    <h1>Testando</h1>
+	<h1>Welcome to CodeIgniter!</h1>
+=======
 	<h1>Bem-vindo ao SGPC!</h1>
+<<<<<<< HEAD
+>>>>>>> ananda
+=======
+>>>>>>> 6753de6c04366e69334fbe19ee681d284bfd7fc8
+>>>>>>> master
 
 	<div id="body">
 		<p>CodeIgniter</p>

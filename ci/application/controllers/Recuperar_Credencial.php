@@ -17,8 +17,8 @@ class Recuperar_Credencial extends CI_Controller {
 
         if ($usuario) {
             $this->Recuperar_Credencial_Model->setToken($email);
-            
-    
+
+
             $mensagem = "E-mail:" . $email;
             $mensagem .= "<br>Menagem: SOLICITAÇÂO DE NOVA SENHA <br>";
             $mensagem .= "<a href='http://127.0.0.1/scpc/index.php/Recuperar_Credencial/recuperar/" . md5($email) . "/" . $usuario['id'] . "'>CLIQUE AQUI PARA RECUPERAR SUA SENHA</a>";
@@ -32,25 +32,25 @@ class Recuperar_Credencial extends CI_Controller {
             $config['mailtype'] = 'html';
             $config['charset'] = 'utf-8';
             $config['newline'] = "\r\n";
-   
+
             $this->email->initialize($config);
             $this->email->from('mads2018@gmail.com', 'SGPC'); // Remetente
             $this->email->to('guilhermeviana609@gmail.com'); //destinatario
             $this->email->subject('Recuperação de senha');
-            $this->email->message($mensagem);
+            $this->email->message($mensagem); 
 
-            if ($this->email->send()) {
-                echo "EMAIL ENVIADO COM SUCESSO";                
+            if (!$this->email->send()) {
+                $this->load->view('email_enviado');
             } else {
-                echo "AAA";
-                print_r($this->email->print_debugger());               
+                print_r($this->email->print_debugger());
+                $message = "Erro ao enviar e-mail.";
+                $this->load->view('recuperar_senha_index', $message);
             }
-        }else{
-            
+        } else {
+
             $message = "Usuário não encontrado!";
             $this->load->view('recuperar_senha_index', $message);
         }       
-        //echo "VIEW DEFAULT";
     }
 
     public function recuperar($token, $id) {
@@ -58,24 +58,22 @@ class Recuperar_Credencial extends CI_Controller {
         $valida = $this->funcionarios_model->validaToken($id, $token);
         $dados = ['id' => $id];
         if ($valida) {
-            echo "VALIDACAO OK";
-        } else {
-            echo "VALIDACAO FALHA";
+             $this->load->view('recuperar_senha');
         }
     }
-    
-     public function update() {
+
+    public function update() {
         $this->load->model("usuarios_model");
         $senha = $this->input->post("senha");
         $senha2 = $this->input->post("senha2");
         $id = $this->input->post("id");
         if ($senha === $senha2) {
             $this->usuarios_model->setSenha($senha, $id);
-            echo "SUCESSO";
+            $this->load->view('senha_alterada', $message = null);
         } else {
-            echo "SENHAS NAO SAO IGUAIS";
+            $message = "As senhas não coincidem";
+            $this->load->view('senha_alterada',$message);
         }
     }
-
 
 }

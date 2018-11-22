@@ -3,7 +3,7 @@
 <html>
     <head>
         <?php
-                echo '<link rel="stylesheet" type="text/css" href="'.base_url('assets/css/bootstrap.min.css').'">';
+                echo '<link rel="stylesheet" type="text/css" href="/SGPC/assets/css/bootstrap.min.css">';
         ?>
     </head>
     <body>

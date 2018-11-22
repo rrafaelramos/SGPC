@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -23,6 +24,10 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('login');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 		$this->load->view('cadastro_usuario');
 
 	}
@@ -30,4 +35,14 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('recuperar_senha');
 	}
+
+	public function cadastro_usuario()
+	{
+		$this->load->view('cadastro_usuario');
+	}
+
+  public function lista_usuario()
+  {
+    $this->load->view('lista_usuario');
+  }
 }

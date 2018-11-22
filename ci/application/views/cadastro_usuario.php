@@ -3,11 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Cadastro Usuário</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href=<?php echo base_url("assets/css/bootstrap.css");?>>
-=======
+
         <link rel="stylesheet" href="assets/css/bootstrap.css">
->>>>>>> 1ab66e2a1eb70f9dc0a1bb38069f8c43f7f6dc16
+
   </head>
   <body>
     <h2 align="center"> Cadastro </h2>

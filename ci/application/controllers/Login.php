@@ -16,7 +16,7 @@ class Login extends CI_Controller {
     // Carrega o model
     $this->load->model(Funcionarios_Model, 'funcionario');
     // Recebe os dados do model
-    $dados = $funcionario->login($func);
+    $dados = $this->funcionario->login($func);
     $funcao = null;
     foreach ($dados as $line) {
       $funcao = $line->departamento;

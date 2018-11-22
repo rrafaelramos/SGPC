@@ -8,7 +8,7 @@ class Login_Model extends CI_Model{
 		if ($dados!=null) {
       $login = $dados['login'];
       $senha = $dados['senha'];
-      $sql="SELECT * FROM funcionarios WHERE login = ? AND senha = ?;"
+      $sql="SELECT * FROM usuarios WHERE login = ? AND senha = ?";
       $query = $this->db->query($sql, array($login, $senha));
       return $query->result();
     }else{

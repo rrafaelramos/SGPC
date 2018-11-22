@@ -7,10 +7,10 @@
   </head>
   <body>
 
-    <h1 align="center"> Cadastro </h1>
+    <h2 align="center"> Cadastro </h2>
     <div class="container">
-      <form name="form" method="post" action="">
-        <div><font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+      <form name="form" method="post" action="" class="form-group">
+        <div>
           Nome:
           <input type="text" name="nome"><br><br>
 
@@ -70,10 +70,10 @@
         </div>
         <div align="right">
           <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
-          <input class="form_botao" type="submit" name="cadastrar" value="Solicitar Cadastro" style="border-style: solid; font-face: verdana;font-size: 12;color: black;background-color: white;border-color: #357CCA;border-width: 1px;">
+          <input class="btn btn-success" type="submit" name="cadastrar" value="Solicitar Cadastro">
         </div>
         <div align="left">
-          <input class="form_botao" type="reset" name="Cancelar" value="cancelar" style="border-style: solid; font-face: verdana;font-size: 12;color: black;background-color: white;border-color: #357CCA;border-width: 1px;">
+          <input class="btn btn-danger" type="reset" name="Cancelar" value="cancelar">
         </div>
     </div>
 

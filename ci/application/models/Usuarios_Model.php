@@ -15,7 +15,7 @@ class Usuarios_Model extends CI_Model {
     protected $departamento;
 
     public function create($usuario) {
-        $query = $this->db->insert('usuarios', $usuario);        
+        $query = $this->db->insert('usuarios', $usuario);
     }
 
     public function update($usuario) {
@@ -25,11 +25,11 @@ class Usuarios_Model extends CI_Model {
     public function delete($id) {
         $this->db->update('usuarios', array('id' => $id));
     }
-    
-    public function get_all(){        
+
+    public function get_all(){
         $this->db->get('usuarios');
     }
-    
+
     public function get_filter($filter) {
         $this->db->where($filter);
         $this->db->get('usuarios');        

@@ -2,6 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/var/www/html/SGPC/ci/application/controllers/Recuperar_Credencial.php</file>
+            <file>file:/var/www/html/SGPC/ci/application/views/recuperar_senha.php</file>
+            <file>file:/var/www/html/SGPC/ci/application/models/Recuperar_Credencial_Model.php</file>
+        </group>
     </open-files>
 </project-private>

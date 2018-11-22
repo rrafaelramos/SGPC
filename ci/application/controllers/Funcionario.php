@@ -33,7 +33,12 @@ class Funcionario extends CI_Controller {
 		//$this->load->view('welcome_message');
 	}
 
-  public function update()
+public function  show_data($id){
+
+    $this->load->view('editar_usuario');
+
+}
+	public function update()
 	{
     // Carrega os dados recebidos por POST
     $func['id'] = $this->input->post('id');
@@ -69,9 +74,13 @@ class Funcionario extends CI_Controller {
     foreach ($func as $line) {
       echo $line->nome."<br/>";
     }
+    return $func;
 
-		//$this->load->view('welcome_message', $func);
 	}
+  public function listar_todos(){
+	    $func =$this->get_all()
+        $this->load->view('lista_usuario', $func);
+  }
 
   public function get_filter()
 	{

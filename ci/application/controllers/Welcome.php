@@ -35,8 +35,5 @@ class Welcome extends CI_Controller
 		$this->load->view('cadastro_usuario');
 	}
 
-  public function lista_usuario()
-  {
-    $this->load->view('lista_usuario');
-  }
+  
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Usuários</title>
-        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <link rel="stylesheet" href="/SGPC/assets/css/bootstrap.css">
   </head>
   <body>
     <h2 align="center"> Usuários </h2>
@@ -34,13 +34,13 @@
                           </thead>
                           <tbody>
                           <?php
-                          foreach ($func as $line) {
+                          foreach ($funcionarios as $line) {
                             echo  '<tr>';
                               echo '<td></td>';
                                echo '   <td>'.$line->nome.'</td>';
                                echo '   <td>'.$line->email.'</td>';
                                echo '   <td>'.$line->login.'</td>';
-                               echo '   <td>'.$line->Senha.'</td>';
+                               echo '   <td>'.$line->senha.'</td>';
                                echo '   <td>'.$line->rua.'</td>';
                                echo '   <td>'.$line->numero.'</td>';
                                echo '   <td>'.$line->bairro.'</td>';

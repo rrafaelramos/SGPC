@@ -15,11 +15,7 @@ class Funcionarios_Model extends CI_Model {
     protected $departamento;
 
     public function create($usuario) {
-<<<<<<< HEAD:ci/application/models/Funcionarios_Model.php
-        return $query = $this->db->insert('funcionarios', $usuario);        
-=======
-        $query = $this->db->insert('usuarios', $usuario);
->>>>>>> antonio:ci/application/models/Usuarios_Model.php
+        return $query = $this->db->insert('funcionarios', $usuario);
     }
 
     public function update($usuario) {
@@ -29,20 +25,16 @@ class Funcionarios_Model extends CI_Model {
     public function delete($id) {
         return $this->db->update('funcionarios', array('id' => $id));
     }
-<<<<<<< HEAD:ci/application/models/Funcionarios_Model.php
-    
-    public function get_all(){        
-        return $this->db->get('funcionarios');
-=======
+
 
     public function get_all(){
-        $this->db->get('usuarios');
->>>>>>> antonio:ci/application/models/Usuarios_Model.php
+        $a = $this->db->query("SELECT * FROM funcionarios");
+        return $a->result();
     }
 
     public function get_filter($filter) {
-        $this->db->where($filter);
-        return $this->db->get('funcionarios');        
+        $query = $this->db->query('SELECT * FROM funcionarios WHERE id ='.$filter);
+        return $query->result();
     }
 
     function getId() {

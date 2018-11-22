@@ -34,8 +34,9 @@ class Funcionario extends CI_Controller {
 	}
 
 public function  show_data($id){
-
-    $this->load->view('editar_usuario');
+		$this->load->model('Funcionarios_Model', 'funcionarios');
+		$resultado['funcionario'] = $this->funcionarios->get_filter($id);
+		$this->load->view('editar_usuario', $resultado);
 
 }
 	public function update()
@@ -53,7 +54,7 @@ public function  show_data($id){
     $func['complemento'] = $this->input->post('complemento');
     $func['departamento'] = $this->input->post('departamento');
     // Carrega o model
-    $this->load->model(Funcionarios_Model, 'funcionario');
+    $this->load->model('Funcionarios_Model', 'funcionario');
     // Tenta persistir os dados
     if($this->funcionario->update($func)){
       echo "Atualizado com sucesso!";
@@ -67,18 +68,18 @@ public function  show_data($id){
   public function get_all()
 	{
     // Carrega o model
-    $this->load->model(Funcionarios_Model, 'funcionario');
+    $this->load->model('Funcionarios_Model', 'funcionario');
     // Recebe os dados do model
-    $func['funcionarios'] = $this->funcionario->list();
+    $func = $this->funcionario->get_all();
 
     foreach ($func as $line) {
-      echo $line->nome."<br/>";
+      //echo $line->nome."<br/>";
     }
     return $func;
 
 	}
   public function listar_todos(){
-	    $func =$this->get_all()
+	    $func['funcionarios'] =$this->get_all();
         $this->load->view('lista_usuario', $func);
   }
 
@@ -87,7 +88,7 @@ public function  show_data($id){
     // Carrega os dados recebidos por POST
     $dados['filtro'] = $this->input->post('filtro');
     // Carrega o model
-    $this->load->model(Funcionarios_Model, 'funcionario');
+    $this->load->model('Funcionarios_Model', 'funcionario');
     // Recebe os dados do model
     $func['funcionarios'] = $this->funcionario->list_filter($dados);
 

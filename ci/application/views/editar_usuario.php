@@ -2,62 +2,60 @@
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
-<<<<<<< HEAD
-    <title>EDitar Usuário</title>
-        <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <title>Editar Usuário</title>
+        <link rel="stylesheet" href="/SGPC/assets/css/bootstrap.css">
   </head>
   <body>
-    <h2 align="center"> Cadastro </h2>
-=======
-    <title>Editar Usuário</title>
+    <h2 align="center"> Editar Funcionário </h2>
+
+    <title>Editar FUncionário</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css">
   </head>
   <body>
     <h2 align="center"> Editar </h2>
->>>>>>> antonio
+    <?php foreach ($funcionario as $key): ?>
+
     <div class="container col-md-offset-3 col-md-6" style="border: solid 1px #d5d5d5; border-radius: 5px; background-color: white; padding: 15px;">
-      <form name="form" method="post" action="">
+      <form name="form" method="post" action=<?php echo base_url('Funcionario/update')?>>
         <div><font face="Verdana, Arial, Helvetica, sans-serif" size="1">
         <div class="row">
+          <div class="col-md-6">
+              <label for="id">ID:</label>
+              <input class="form-control" type="text" id="id" name="id" placeholder=" ID" value=<?php echo $key->id ?>>
+          </div>
             <div class="col-md-6">
                 <label for="nome">Nome:</label>
-<<<<<<< HEAD
-                <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome">
+                <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome" value=<?php echo $key->nome ?>>
             </div>
             <div class="col-md-6">
                 <label for="nome">Nome de Usuário:</label>
-                <input class="form-control" type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Nome de Usuário">
-=======
-                <input class="form-control" type="text" id="nome" name="nome" <?php  ?>>
+                <input class="form-control" type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Nome de Usuário" value=<?php echo $key->login ?>>
             </div>
-            <div class="col-md-6">
-                <label for="nome">Nome de Usuário:</label>
-                <input class="form-control" type="text" id="nomeUsuario" name="nomeUsuario" >
->>>>>>> antonio
-            </div>
+
         </div>
             <label for="email">E-mail:</label>
-          <input class="form-control" id="email" type="email" name="email" placeholder="Email">
+          <input class="form-control" id="email" type="email" name="email" placeholder="Email" value=<?php echo $key->email ?>>
                 <label for="senha">Senha:</label>
-          <input class="form-control" id="senha" type="password" name="senha" placeholder="Senha">
+          <input class="form-control" id="senha" type="password" name="senha" placeholder="Senha" value=<?php echo $key->senha ?>>
         <div class="row">
             <div class="col-md-4">
                 <label for="endereco">Endereço:</label>
-                  <input class="form-control" type="text" id="endereco" name="endereco" placeholder="Endereço">
+                  <input class="form-control" type="text" id="endereco" name="endereco" placeholder="Endereço" value=<?php echo $key->rua ?>>
             </div>
             <div class="col-md-4">
                 <label for="numero">Numero:</label>
-                  <input id="numero" class="form-control" type="text" name="numero" placeholder="Numero">
+                  <input id="numero" class="form-control" type="text" name="numero" placeholder="Numero" value=<?php echo $key->numero ?>>
             </div>
             <div class="col-md-4">
                 <label for="bairro">Bairro:</label>
-                  <input class="form-control" type="text" id="bairro" name="bairro" placeholder="Bairro">
+                  <input class="form-control" type="text" id="bairro" name="bairro" placeholder="Bairro" value=<?php echo $key->bairro ?>>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
                 <label for="cidade">Cidade:</label>
-                <input class="form-control" id="cidade" type="text" name="cidade" placeholder="Cidade">
+                <input class="form-control" id="cidade" type="text" name="cidade" placeholder="Cidade" value=<?php echo $key->cidade ?>>
             </div>
             <div class="col-md-4">
                   <label for="estado">UF:</label>
@@ -94,7 +92,7 @@
             </div>
             <div class="col-md-4">
                 <label for="complemento">Complemento:</label>
-                <input class="form-control" id="complemento"  type="text" name="Complemento" placeholder="Complemento" >
+                <input class="form-control" id="complemento"  type="text" name="Complemento" placeholder="Complemento" value=<?php echo $key->complemento ?>>
             </div>
         </div>
                 <label for="departamento">Departamento:</label>
@@ -108,11 +106,9 @@
         </div>
           <br>
             <input class="btn btn-danger col-md-offset-1" type="reset" name="cancelar" value="Cancelar" style="font-face: verdana;font-size: 12px; display:inline;">
-<<<<<<< HEAD
-            <input class="btn btn-success col-md-offset-7" type="submit" name="cadastrar" value="Solicitar Cadastro" style="font-face: verdana;font-size: 12px; display:inline; right: 0px; position: relative;">
-=======
-            <input class="btn btn-success col-md-offset-7" type="submit" name="salvar" value="Salvar" style="font-face: verdana;font-size: 12px; display:inline; right: 0px; position: relative;">
->>>>>>> antonio
+
+            <input class="btn btn-success col-md-offset-7" type="submit" name="salvar" value="Salvar alterações" style="font-face: verdana;font-size: 12px; display:inline; right: 0px; position: relative;">
+          <?php endforeach; ?>
       </form>
     </div>
   </body>

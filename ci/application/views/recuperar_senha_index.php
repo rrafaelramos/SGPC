@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Recuperar Senha</title>
-        <link rel="stylesheet" href="/SGPC/ci/assets/css/bootstrap.css">
+        <link rel="stylesheet" href="/SGPC/assets/css/bootstrap.css">
     </head>
     <body>
         <div class="container">
@@ -13,7 +13,7 @@
                     
                     <?php  if (!empty($message)) echo '<div class="btn btn-danger>"'.$message. '</div>' ?>
 
-                    <form class="col-md-12" name="form" method="post" action="valida">
+                    <form class="col-md-12" name="form" method="post" action="http://127.0.0.1/SGPC/ci/index.php/Recuperar_Credencial/valida">
                         <div class="form-group ">
                             <label for="exampleInputPassword1">E-mail</label>
                             <br>

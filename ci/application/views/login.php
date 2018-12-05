@@ -1,21 +1,13 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <title>Cadastro Usuário</title>
-        <link rel="stylesheet" href="/SGPC/ci/assets/css/bootstrap.css">
-  </head>
-=======
 
 
 <html>
     <head>
+      <meta charset="utf-8">
+      <title>Cadastro Usuário</title>
         <?php
                 echo '<link rel="stylesheet" type="text/css" href="/SGPC/assets/css/bootstrap.min.css">';
         ?>
     </head>
->>>>>>> master
     <body>
         <div class="row" style="top: 25%; position: relative;">
             <div class="col-md-offset-4 col-md-3 container" style="border: solid 1px #d5d5d5;  border-radius: 5px;">

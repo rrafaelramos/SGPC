@@ -17,15 +17,29 @@ class ClientesAvulsos_Model extends CI_Model {
     protected $nascimento;
 
     public function create($dados) {
-        return $query = $this->db->insert('clientes_avulsos', $usuario);
+      $query = $this->db->insert('clientes_avulsos', $dados);
+      if($query->result()!=null){
+        return 1;
+      }
+     return 0;
     }
 
     public function update($dados) {
-        return $this->db->update('clientes_avulsos', $dados, array('id' => $usuario['id']));
+          $query = $this->db->update('clientes_avulsos', $dados, array('id' => $dados['id']));
+          if($query->result()!=null){
+            return 1;
+          }
+         return 0;
     }
 
     public function delete($id) {
-        return $this->db->update('clientes_avulsos', array('id' => $id));
+        $query= $this->db->delete('clientes_avulsos', array('id' => $id['id']));
+        if($query->result()!=null){
+          return 1;
+        }
+       return 0;
+
+
     }
 
 

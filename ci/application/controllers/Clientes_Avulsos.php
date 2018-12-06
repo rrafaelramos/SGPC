@@ -11,20 +11,21 @@ class Clientes_Avulsos extends CI_Controller {
   public function create()
 	{
     // Carrega os dados recebidos por POST
-    $func['nome'] = $this->input->post('nome');
-    $func['telefone'] = $this->input->post('telefone');
-    $func['nascimento'] = $this->input->post('nascimento');
-    $func['cep'] = $this->input->post('cep');
-    $func['cpf'] = $this->input->post('cpf');
-    $func['rg'] = $this->input->post('rg');
-    $func['rua'] = $this->input->post('rua');
-    $func['numero'] = $this->input->post('numero');
-    $func['bairro'] = $this->input->post('bairro');
-    $func['cidade'] = $this->input->post('cidade');
-    $func['referencia'] = $this->input->post('referencia');
-    $func['complemento'] = $this->input->post('complemento');
+    $func['nome'] = 'caio';
+    $func['telefone'] = '123342432';
+    $func['nascimento'] = '2018-05-09';
+    $func['cep'] = '1518547';
+    $func['cpf'] = '156165615161';
+    $func['rg'] = '1561616';
+    $func['rua'] = 'dsafdsa';
+    $func['numero'] = '151';
+		$func['estado'] = 'dsadsa';
+    $func['bairro'] = 'hnkjbnk';
+    $func['cidade'] = 'hjgvhjgj';
+    $func['referencia'] = 'ghvjgh';
+    $func['complemento'] = 'ghvgv';
     // Carrega o model
-    $this->load->model(ClientesAvulsos_Model, 'clientes');
+    $this->load->model('ClientesAvulsos_Model', 'clientes');
     // Tenta persistir os dados
     if($this->clientes->create($func)){
       echo "Cadastrado com sucesso!";
@@ -44,19 +45,20 @@ public function  show_data($id){
 	public function update()
 	{
     // Carrega os dados recebidos por POST
-    $func['id'] = $this->input->post('id');
-    $func['nome'] = $this->input->post('nome');
-    $func['telefone'] = $this->input->post('telefone');
-    $func['nascimento'] = $this->input->post('nascimento');
-    $func['cep'] = $this->input->post('cep');
-    $func['cpf'] = $this->input->post('cpf');
-    $func['rg'] = $this->input->post('rg');
-    $func['rua'] = $this->input->post('rua');
-    $func['numero'] = $this->input->post('numero');
-    $func['bairro'] = $this->input->post('bairro');
-    $func['cidade'] = $this->input->post('cidade');
-    $func['referencia'] = $this->input->post('referencia');
-    $func['complemento'] = $this->input->post('complemento');
+    $func['id'] = 4;
+		$func['nome'] = 'marco';
+    $func['telefone'] = '123342432';
+    $func['nascimento'] = '2018-05-09';
+    $func['cep'] = '1518547';
+    $func['cpf'] = '156165615161';
+    $func['rg'] = '1561616';
+    $func['rua'] = 'dsafdsa';
+    $func['numero'] = '151';
+		$func['estado'] = 'dsadsa';
+    $func['bairro'] = 'hnkjbnk';
+    $func['cidade'] = 'hjgvhjgj';
+    $func['referencia'] = 'ghvjgh';
+    $func['complemento'] = 'ghvgv';
     // Carrega o model
     $this->load->model('ClientesAvulsos_Model', 'clientes');
     // Tenta persistir os dados
@@ -106,7 +108,7 @@ public function  show_data($id){
   public function delete()
 	{
     // Carrega os dados recebidos por POST
-    $func['id'] = $this->input->post('id');
+    $func['id'] = 1;
     // Carrega o model
     $this->load->model('ClientesAvulsos_Model', 'clientes');
     // Recebe os dados do model

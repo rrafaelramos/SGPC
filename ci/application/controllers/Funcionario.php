@@ -36,8 +36,7 @@ class Funcionario extends CI_Controller {
     }else{
       echo "Erro ao cadastrar!";
     }
-	//	$this->load->view('listar_solicitacoes');
-		$this->show_solicitacoes();
+		$this->load->view('login');
 	}
 
 public function  show_data($id){

@@ -7,38 +7,79 @@ class Funcionario extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
-
+	public function show_cadastro()
+	{
+		$this->load->view('cadastro_usuario');
+	}
   public function create()
 	{
     // Carrega os dados recebidos por POST
     $func['nome'] = $this->input->post('nome');
     $func['email'] = $this->input->post('email');
     $func['login'] = $this->input->post('login');
+		$func['senha'] = $this->input->post('senha');
     $func['rua'] = $this->input->post('rua');
     $func['numero'] = $this->input->post('numero');
     $func['bairro'] = $this->input->post('bairro');
     $func['cidade'] = $this->input->post('cidade');
+		$func['estado'] = $this->input->post('estado');
     $func['referencia'] = $this->input->post('referencia');
     $func['complemento'] = $this->input->post('complemento');
-    $func['departamento'] = $this->$funcionario->input->post('departamento');
+    $func['departamento'] = $this->input->post('departamento');
+		$func['aceito'] = 0;
+		$func['ativo'] = 0;
     // Carrega o model
-    $this->load->model(Funcionarios_Model, 'funcionario');
+    $this->load->model("Funcionarios_Model", 'funcionario');
     // Tenta persistir os dados
     if($this->funcionario->create($func)){
       echo "Cadastrado com sucesso!";
     }else{
       echo "Erro ao cadastrar!";
     }
-
-		//$this->load->view('welcome_message');
+	//	$this->load->view('listar_solicitacoes');
+		$this->show_solicitacoes();
 	}
 
 public function  show_data($id){
 		$this->load->model('Funcionarios_Model', 'funcionarios');
-		$resultado['funcionario'] = $this->funcionarios->get_filter($id);
+		$resultado['funcionario'] = $this->funcionarios->get_filter(array('campo'=>'id','valor'=>$id));
 		$this->load->view('editar_usuario', $resultado);
 
 }
+public function  show_solicitacoes(){
+	  $dados['campo']='aceito';
+		$dados['valor']=0;
+		$this->load->model('Funcionarios_Model', 'funcionario');
+		$func['funcionarios'] = $this->funcionario->get_filter($dados);
+	  $this->load->view('listar_solicitacoes', $func);
+}
+public function  aceitar_solicitacao($id){
+		$func['aceito'] = 1;
+		$func['ativo'] = 1;
+		$func['id'] = $id;
+		$this->load->model('Funcionarios_Model', 'funcionario');
+    // Tenta persistir os dados
+    if($this->funcionario->update($func)){
+      echo "Aceito com sucesso!";
+    }else{
+      echo "Erro ao aceitar!";
+    }
+}
+
+public function  remover_usuario($id){
+		$func['aceito'] = 0;
+		$func['ativo'] = 0;
+		$func['id'] = $id;
+		$this->load->model('Funcionarios_Model', 'funcionario');
+    // Tenta persistir os dados
+    if($this->funcionario->update($func)){
+      echo "Removido com sucesso!";
+    }else{
+      echo "Erro ao Remover!";
+    }
+}
+
+
 	public function update()
 	{
     // Carrega os dados recebidos por POST
@@ -79,23 +120,23 @@ public function  show_data($id){
 
 	}
   public function listar_todos(){
-	    $func['funcionarios'] =$this->get_all();
-        $this->load->view('lista_usuario', $func);
+			$dados['campo']='aceito';
+			$dados['valor']=1;
+			$this->load->model('Funcionarios_Model', 'funcionario');
+			$func['funcionarios'] = $this->funcionario->get_filter($dados);
+      $this->load->view('lista_usuario', $func);
   }
 
-  public function get_filter()
+  public function get_filter($filtro, $campo)
 	{
     // Carrega os dados recebidos por POST
-    $dados['filtro'] = $this->input->post('filtro');
+    $dados['valor'] = $filtro;//$this->input->post('filtro');
+		$dados['campo'] = $campo;
     // Carrega o model
     $this->load->model('Funcionarios_Model', 'funcionario');
     // Recebe os dados do model
-    $func['funcionarios'] = $this->funcionario->list_filter($dados);
-
-    foreach ($func as $line) {
-      echo $line->nome."<br/>";
-    }
-
+    $func['funcionarios'] = $this->funcionario->get_filter($dados);
+		return $func;
 		//$this->load->view('welcome_message', $func);
 	}
 

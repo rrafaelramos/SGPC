@@ -1,3 +1,4 @@
+drop database sgpc;
 create database sgpc;
 
 use sgpc;
@@ -13,12 +14,17 @@ create table if not exists funcionarios(
     senha varchar (50) not null,
     numero int,
     bairro varchar (150),
+    estado varchar (150),
     cidade varchar (150),
     referencia varchar (255),
     complemento varchar (100),
     departamento enum('FISCAL','CONTABIL','PESSOAL(RH)'),
+    aceito boolean,
+    ativo boolean,
     token varchar (255)
 );
+
+select * from funcionarios;
 
 
 

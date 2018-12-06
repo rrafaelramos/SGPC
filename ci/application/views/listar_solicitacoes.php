@@ -12,7 +12,7 @@
             <div>
                 <div class="panel panel-default" >
                       <!-- Default panel contents-->
-                      <div class="panel-heading" > Usuários Ativos </div >
+                      <div class="panel-heading" > Usuários Inativos </div >
                       <!--Table -->
                       <table class="table" >
                           <thead>
@@ -49,7 +49,8 @@
                                echo '   <td>'.$line->referencia.'</td>';
                                echo '   <td>'.$line->complemento.'</td>';
                                echo '   <td>'.$line->departamento.'</td>';
-                               echo '   <td><a href="'.base_url('Funcionario/show_data/'.$line->id).'"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="'.base_url('Funcionario/remover_usuario/'.$line->id).'"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                               echo '   <td><button class="btn btn-success" style="font-face: verdana;font-size: 12px; display:inline; right: 0px; position: relative;"><a style="color:white; text-decoration:none;" href="'.base_url('Funcionario/aceitar_solicitacao/'.$line->id).'">Aceitar <span class="glyphicon glyphicon-ok"></span></a></button></td>';
+
                           echo '    </tr>';
                           $cont= $cont + 1;
                           }

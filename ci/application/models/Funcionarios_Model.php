@@ -33,7 +33,7 @@ class Funcionarios_Model extends CI_Model {
     }
 
     public function get_filter($filter) {
-        $query = $this->db->query('SELECT * FROM funcionarios WHERE id ='.$filter);
+      $query = $this->db->query('SELECT * FROM funcionarios WHERE '.$filter["campo"].' ='.$filter["valor"]);
         return $query->result();
     }
 

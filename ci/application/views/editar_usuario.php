@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-md-6">
               <label for="id">ID:</label>
-              <input class="form-control" type="text" id="id" name="id" placeholder=" ID" value=<?php echo $key->id ?>>
+              <input class="form-control" type="text" id="id" name="id" placeholder=" ID" value=<?php echo $key->id ?> readonly>
           </div>
             <div class="col-md-6">
                 <label for="nome">Nome:</label>
@@ -105,8 +105,8 @@
             </font>
         </div>
           <br>
-            <input class="btn btn-danger col-md-offset-1" type="reset" name="cancelar" value="Cancelar" style="font-face: verdana;font-size: 12px; display:inline;">
 
+            <button class="btn btn-danger col-md-offset-1" style="font-face: verdana;font-size: 12px; display:inline; right: 0px; position: relative;"><a style="color:white; text-decoration:none;" <?php echo 'href="'.base_url('Funcionario/listar_todos/').'"'?>>Cancelar</a></button>
             <input class="btn btn-success col-md-offset-7" type="submit" name="salvar" value="Salvar alterações" style="font-face: verdana;font-size: 12px; display:inline; right: 0px; position: relative;">
           <?php endforeach; ?>
       </form>

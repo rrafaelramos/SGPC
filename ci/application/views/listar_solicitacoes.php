@@ -3,11 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Usuários</title>
-<<<<<<< HEAD
-        <link rel="stylesheet" href="assets/css/bootstrap.css">
-=======
         <link rel="stylesheet" href="/SGPC/assets/css/bootstrap.css">
->>>>>>> master
   </head>
   <body>
     <h2 align="center"> Usuários </h2>
@@ -16,24 +12,17 @@
             <div>
                 <div class="panel panel-default" >
                       <!-- Default panel contents-->
-                      <div class="panel-heading" > Usuários Ativos </div >
+                      <div class="panel-heading" > Usuários Inativos </div >
                       <!--Table -->
                       <table class="table" >
                           <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Nome</th>
-<<<<<<< HEAD
-                                    <th>Usuário</th>
-                                    <th>Email</th>
-                                    <th>Senha</th>
-                                     <th>Endereço</th>
-=======
                                     <th>Email</th>
                                     <th>Login</th>
                                     <th>Senha</th>
                                     <th>Endereço</th>
->>>>>>> master
                                     <th>Numero</th>
                                     <th>Bairro</th>
                                     <th>Cidade</th>
@@ -44,23 +33,6 @@
                                 </tr>
                           </thead>
                           <tbody>
-<<<<<<< HEAD
-                              <tr>
-                                  <td>#</td>
-                                  <td>Nome</td>
-                                  <td>Usuário</td>
-                                  <td>Email</td>
-                                  <td>Senha</td>
-                                  <td>Endereço</td>
-                                  <td>Numero</td>
-                                  <td>Bairro</td>
-                                  <td>Cidade</td>
-                                  <td>UF</td>
-                                  <td>Complemento</td>
-                                  <td>Departamento</td>
-                                  <td><a href=""><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=""><span class="glyphicon glyphicon-remove"></span></a></td>
-                              </tr>
-=======
                           <?php
                           $cont=1;
                           foreach ($funcionarios as $line) {
@@ -77,12 +49,12 @@
                                echo '   <td>'.$line->referencia.'</td>';
                                echo '   <td>'.$line->complemento.'</td>';
                                echo '   <td>'.$line->departamento.'</td>';
-                               echo '   <td><a href="'.base_url('Funcionario/show_data/'.$line->id).'"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="'.base_url('Funcionario/remover_usuario/'.$line->id).'"><span class="glyphicon glyphicon-remove"></span></a></td>';
+                               echo '   <td><button class="btn btn-success" style="font-face: verdana;font-size: 12px; display:inline; right: 0px; position: relative;"><a style="color:white; text-decoration:none;" href="'.base_url('Funcionario/aceitar_solicitacao/'.$line->id).'">Aceitar <span class="glyphicon glyphicon-ok"></span></a></button></td>';
+
                           echo '    </tr>';
                           $cont= $cont + 1;
                           }
                           ?>
->>>>>>> master
                           </tbody>
                       </table >
                     </div >

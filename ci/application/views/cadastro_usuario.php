@@ -3,12 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Cadastro Usuário</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/SGPC/ci/assets/css/bootstrap.css">
   </head>
   <body>
 
     <h1 align="center"> Cadastro </h1>
     <div class="container">
+=======
+
+        <link rel="stylesheet" href="/SGPC/assets/css/bootstrap.css">
+
+
+  </head>
+  <body>
+
+
+    <h2 align="center"> Cadastro </h2>
+    <div class="container col-md-offset-3 col-md-6" style="border: solid 1px #d5d5d5; border-radius: 5px; background-color: white; padding: 15px;">
+>>>>>>> master
       <form name="form" method="post" action="">
         <div><font face="Verdana, Arial, Helvetica, sans-serif" size="1">
           Nome:

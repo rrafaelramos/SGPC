@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Recuperar_Credencial extends CI_Controller {
 
     public function index() {
-        $this->load->view('recuperar_credencial');
+        $this->load->view('recuperar_senha_index', $message = null);
     }
 
     public function valida() {
@@ -39,6 +39,7 @@ class Recuperar_Credencial extends CI_Controller {
             $this->email->subject('Recuperação de senha');
             $this->email->message($mensagem);
 
+<<<<<<< HEAD
             if ($this->email->send()) {
                 echo "EMAIL ENVIADO COM SUCESSO";
             } else {
@@ -49,31 +50,51 @@ class Recuperar_Credencial extends CI_Controller {
             echo "OPS";
         }
         echo "VIEW DEFAULT";
+=======
+            if (!$this->email->send()) {
+                $this->load->view('email_enviado');
+            } else {
+                print_r($this->email->print_debugger());
+                $message = "Erro ao enviar e-mail.";
+                $this->load->view('recuperar_senha_index', $message);
+            }
+        } else {
+
+            $message = "Usuário não encontrado!";
+            $this->load->view('recuperar_senha_index', $message);
+        }
+>>>>>>> master
     }
 
     public function recuperar($token, $id) {
-        $this->load->model("funcionarios_model");
-        $valida = $this->funcionarios_model->validaToken($id, $token);
+        $this->load->model("Recuperar_Credencial_Model");
+        $valida = $this->Recuperar_Credencial_Model->validaToken($id, $token);
         $dados = ['id' => $id];
         if ($valida) {
-            echo "VALIDACAO OK";
-        } else {
-            echo "VALIDACAO FALHA";
+            $this->load->view('recuperar_senha');
         }
     }
 
+<<<<<<< HEAD
      public function update() {
         $this->load->model("usuarios_model");
+=======
+    public function update() {
+
+        $this->load->model("Recuperar_Credencial_Model");
+>>>>>>> master
         $senha = $this->input->post("senha");
         $senha2 = $this->input->post("senha2");
         $id = $this->input->post("id");
-        if ($senha === $senha2) {
-            $this->usuarios_model->setSenha($senha, $id);
-            echo "SUCESSO";
+        $token = $this->input->post("token");
+
+        if ($senha === $senha2 && $id > 0) {
+            $this->Recuperar_Credencial_Model->setSenha($senha, $id);
+            $this->load->view('senha_alterada', $message = "");
         } else {
-            echo "SENHAS NAO SAO IGUAIS";
+            $message = "As senhas não coincidem";
+            redirect('http://127.0.0.1/SGPC/ci/index.php/Recuperar_Credencial/recuperar/' . $token . '/' . $id . '', 'refresh');
         }
     }
-
 
 }

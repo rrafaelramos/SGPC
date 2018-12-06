@@ -10,6 +10,7 @@ create table if not exists funcionarios(
     email varchar (100) not null unique,
     login varchar (50) not null unique,
     rua varchar (100),
+    senha varchar (50) not null,
     numero int,
     bairro varchar (150),
     cidade varchar (150),

@@ -1,39 +1,41 @@
 <?php
 
-class Funcionarios_Model extends CI_Model {
+class ClientesAvulsos_Model extends CI_Model {
 
     protected $id;
     protected $nome;
-    protected $email;
-    protected $login;
+    protected $telefone;
+    protected $cpf;
+    protected $rg;
+    protected $cep;
     protected $rua;
     protected $numero;
     protected $bairro;
     protected $cidade;
     protected $referencia;
     protected $complemento;
-    protected $departamento;
+    protected $nascimento;
 
-    public function create($usuario) {
-        return $query = $this->db->insert('funcionarios', $usuario);
+    public function create($dados) {
+        return $query = $this->db->insert('clientes_avulsos', $usuario);
     }
 
-    public function update($usuario) {
-        return $this->db->update('funcionarios', $usuario, array('id' => $usuario['id']));
+    public function update($dados) {
+        return $this->db->update('clientes_avulsos', $dados, array('id' => $usuario['id']));
     }
 
     public function delete($id) {
-        return $this->db->update('funcionarios', array('id' => $id));
+        return $this->db->update('clientes_avulsos', array('id' => $id));
     }
 
 
     public function get_all(){
-        $a = $this->db->query("SELECT * FROM funcionarios");
+        $a = $this->db->query("SELECT * FROM clientes_avulsos");
         return $a->result();
     }
 
     public function get_filter($filter) {
-        $query = $this->db->query('SELECT * FROM funcionarios WHERE id ='.$filter);
+        $query = $this->db->query('SELECT * FROM clientes_avulsos WHERE id ='.$filter);
         return $query->result();
     }
 

@@ -3,11 +3,11 @@
 class Recuperar_Credencial_Model extends CI_Model {
 
     function validacao($dados) {
-      $this->db->where("email =", $dados['email']);
-      $this->db->or_where("login =", $dados['email']);
-      return $this->db->get('funcionarios')->row_array();
+        $this->db->where("email =", $dados['email']);
+        $this->db->or_where("login =", $dados['email']);
+        return $this->db->get('funcionarios')->row_array();
     }
-    
+
     public function setToken($email) {
         $this->db->where("email", $email);
         $usuario = $this->db->get("funcionarios")->row_array();
@@ -15,6 +15,7 @@ class Recuperar_Credencial_Model extends CI_Model {
         $flag = $this->db->update('funcionarios', $usuario, array('id' => $usuario['id']));
         return $flag;
     }
+
     public function validaToken($id, $token) {
         $this->db->where("id", $id);
         $this->db->where("token", $token);
@@ -22,9 +23,10 @@ class Recuperar_Credencial_Model extends CI_Model {
         return $usuario;
     }
 
-    function setSenha($dados) {
-      $query = $this->db->query('UPDATE funcionarios SET senha = "'.$dados['senha'].'" WHERE id="'.$dados['id'].'"');
-      return $query->result();
+    function setSenha($senha, $id) {
+        $flag = $this->db->update('funcionarios', array('id' => $id, 'senha' => $senha));
+
+        return $flag;
     }
 
 }

@@ -37,7 +37,7 @@ class Recuperar_Credencial extends CI_Controller {
             $this->email->from('mads2018@gmail.com', 'SGPC'); // Remetente
             $this->email->to('guilhermeviana609@gmail.com'); //destinatario
             $this->email->subject('Recuperação de senha');
-            $this->email->message($mensagem); 
+            $this->email->message($mensagem);
 
             if (!$this->email->send()) {
                 $this->load->view('email_enviado');
@@ -50,29 +50,32 @@ class Recuperar_Credencial extends CI_Controller {
 
             $message = "Usuário não encontrado!";
             $this->load->view('recuperar_senha_index', $message);
-        }       
+        }
     }
 
     public function recuperar($token, $id) {
-        $this->load->model("funcionarios_model");
-        $valida = $this->funcionarios_model->validaToken($id, $token);
+        $this->load->model("Recuperar_Credencial_Model");
+        $valida = $this->Recuperar_Credencial_Model->validaToken($id, $token);
         $dados = ['id' => $id];
         if ($valida) {
-             $this->load->view('recuperar_senha');
+            $this->load->view('recuperar_senha');
         }
     }
 
     public function update() {
-        $this->load->model("usuarios_model");
+
+        $this->load->model("Recuperar_Credencial_Model");
         $senha = $this->input->post("senha");
         $senha2 = $this->input->post("senha2");
         $id = $this->input->post("id");
-        if ($senha === $senha2) {
-            $this->usuarios_model->setSenha($senha, $id);
-            $this->load->view('senha_alterada', $message = null);
+        $token = $this->input->post("token");
+
+        if ($senha === $senha2 && $id > 0) {
+            $this->Recuperar_Credencial_Model->setSenha($senha, $id);
+            $this->load->view('senha_alterada', $message = "");
         } else {
             $message = "As senhas não coincidem";
-            $this->load->view('senha_alterada',$message);
+            redirect('http://127.0.0.1/SGPC/ci/index.php/Recuperar_Credencial/recuperar/' . $token . '/' . $id . '', 'refresh');
         }
     }
 

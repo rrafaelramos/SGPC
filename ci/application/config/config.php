@@ -25,9 +25,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
+<<<<<<< HEAD
 
 $config['base_url'] = 'http://127.0.0.1/SGPC/ci/index.php';
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> b62d6099025a0d4bae185cab04e29f288f3325ca
+
+$config['base_url'] = 'http://127.0.0.1/SGPC/ci/index.php';
+
+
+>>>>>>> 7d6e7e6e2666107427a303e57426a833aa5a68df
 
 /*
 |--------------------------------------------------------------------------
@@ -524,4 +535,4 @@ $config['rewrite_short_tags'] = FALSE;
 | Comma-separated:	'10.0.1.200,192.168.5.0/24'
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
-$config['proxy_ips'] = '192.168.1.1/24';
+$config['proxy_ips'] = '192.168.1.1:3128/24';

@@ -11,7 +11,8 @@
                 <div class="col-md-12 col-lg-12">  
                     <hr>
                     <h3>Senha alterada com sucesso!</h3><br/>
-                    <h5>Faça o login para acessar o sistema.</h5>
+                    <h5>Faça o login para acessar o sistema.</h5>                    
+                    <a href="http://127.0.0.1/SGPC/ci/index.php/Login"> Clique aqui para fazer login </a>
                     <hr>
                 </div>
 

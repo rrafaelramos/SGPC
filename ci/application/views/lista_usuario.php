@@ -12,7 +12,7 @@
             <div>
                 <div class="panel panel-default" >
                       <!-- Default panel contents-->
-                      <div class="panel-heading" > Usuários Ativos </div >
+                      <div class="panel-heading" > Usuários Ativos <a href="<?php echo base_url('Funcionario/show_cadastro')?>" class="btn btn-success pull-right">Novo </a></div >
                       <!--Table -->
                       <table class="table" >
                           <thead>
